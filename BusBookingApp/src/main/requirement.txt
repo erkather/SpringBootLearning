@@ -1,0 +1,79 @@
+REST APIs
+1. To get the list of buses for a given source, destination and date:
+   - Endpoint: GET /api/buses
+   - Query Parameters: source (string), destination (String), date (DD-MM-YYYY)
+   - Response: List of buses with details (bus ID, departure time, arrival time, available seats)
+
+2. To book a ticket for a specific bus:
+    - Endpoint: POST /api/bookings
+    - Request Body: { busId: string, passengerName: string, passengerAge: number, seatNumber: number }
+    - Response: Booking confirmation with booking ID and details
+
+3. To cancel a booking:
+    - Endpoint: DELETE /api/bookings/{bookingId}
+    - Path Parameter: bookingId (string)
+    - Response: Cancellation confirmation
+
+4. To get the details of a specific booking:
+    - Endpoint: GET /api/bookings/{bookingId}
+    - Path Parameter: bookingId (string)
+    - Response: Booking details (bus ID, passenger name, passenger age, booking status)
+
+5. To get the list of available seats for a specific bus:
+    - Endpoint: GET /api/buses/{busId}/seats
+    - Path Parameter: busId (string)
+    - Response: List of available seats with seat numbers and status (available/booked)
+
+6. To update the passenger details for a specific booking:
+    - Endpoint: PUT /api/bookings/{bookingId}
+    - Path Parameter: bookingId (string)
+    - Request Body: { passengerName: string, passengerAge: number }
+    - Response: Updated booking details
+
+7. To get the list of all bookings for a specific bus:
+    - Endpoint: GET /api/buses/{busId}/bookings
+    - Path Parameter: busId (string)
+    - Response: List of bookings with details (booking ID, passenger name, passenger age, booking status)
+
+8. To get the list of all buses available on a specific date:
+    - Endpoint: GET /api/buses/date/{date}
+    - Path Parameter: date (YYYY-MM-DD)
+    - Response: List of buses with details (bus ID, source, destination, departure time, arrival time)
+
+9. To get the list of all bookings for a specific passenger:
+    - Endpoint: GET /api/bookings/passenger/{passengerName}
+    - Path Parameter: passengerName (string)
+    - Response: List of bookings with details (booking ID, bus ID, passenger age, booking status)
+
+10. To add a new bus to the system:
+    - Endpoint: POST /api/buses
+    - Request Body: { busId: string, source: string, destination: string, departureTime: string, arrivalTime: string, totalSeats: number }
+    - Response: Bus creation confirmation with bus details
+11. To update the details of a specific bus:
+    - Endpoint: PUT /api/buses/{busId}
+    - Path Parameter: busId (string)
+    - Request Body: { source: string, destination: string, departureTime: string,
+        arrivalTime: string, totalSeats: number }
+    - Response: Updated bus details
+12. To delete a specific bus from the system: [DONE]
+    - Endpoint: DELETE /api/buses/{busId}
+    - Path Parameter: busId (string)
+    - Response: Bus deletion confirmation
+13. To get the list of all buses in the system: [DONE]
+    - Endpoint: GET /api/buses
+    - Response: List of all buses with details (bus ID, source, destination, departure
+        time, arrival time, total seats)
+14. To add a new passenger to the system:
+    - Endpoint: POST /api/passengers
+    - Request Body: { passengerName: string, passengerAge: number }
+    - Response: Passenger creation confirmation with passenger details
+15. To update the details of a specific passenger:
+    - Endpoint: PUT /api/passengers/{passengerName}
+    - Path Parameter: passengerName (string)
+    - Request Body: { passengerAge: number }
+    - Response: Updated passenger details
+16. To delete a specific passenger from the system:
+    - Endpoint: DELETE /api/passengers/{passengerName}
+    - Path Parameter: passengerName (string)
+    - Response: Passenger deletion confirmation
+
